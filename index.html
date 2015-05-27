@@ -119,9 +119,6 @@ var svg = d3.select("body").append("svg")
 
 svg.on("mousedown", function(d) {
 	drag();
-
-
-
 });
 
 
@@ -134,19 +131,21 @@ function drag() {
 }
 
 
-d3.json("json/plot.json", function(error, world) {
-  //var land = topojson.feature(world, world.objects.land),
-  //globe = {type: "Sphere"};
+function map() {
+  d3.json("json/plot.json", function(error, world) {
+    //var land = topojson.feature(world, world.objects.land),
+    //globe = {type: "Sphere"};
 
-	  svg.append("path")
-      .datum(topojson.feature(world, world.objects.land))
-      .attr("class", "land")
-      .attr("d", path);
+      svg.append("path")
+        .datum(topojson.feature(world, world.objects.land))
+        .attr("class", "land")
+        .attr("d", path);
 
-    plot(error, world);
+      plot(error, world);
 
 
-});
+  });
+}
 
 
 function plot(error, world) {

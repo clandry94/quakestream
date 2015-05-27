@@ -1,4 +1,6 @@
 document.writeln('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></sc'+'ript>');
+document.writeln('<script src="http://d3js.org/d3.v3.min.js"></sc'+'ript>')
+document.writeln('<script src="http://d3js.org/topojson.v1.min.js"></sc'+'ript>')
 
 dataCall = {
 	getData: function(callback) {
@@ -54,6 +56,10 @@ dataCall = {
 				alert(xml.status + ' ' + xml.statusText);
 				return 0;
 			}
+		}).done(function(result) {
+
+			map();
+
 		});
 
 	}
